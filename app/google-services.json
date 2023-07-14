@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "833327869032",
+    "firebase_url": "https://barilliant-bf7bf-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "barilliant-bf7bf",
+    "storage_bucket": "barilliant-bf7bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833327869032:android:9778a86dd2e4686cb1dfdd",
+        "android_client_info": {
+          "package_name": "com.example.barilliant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833327869032-ugpskgmdgtevpnvldo5blp2otfirpek6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHPy57FRyDY1q37dvR4d12FrSOkfwNTmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833327869032-ugpskgmdgtevpnvldo5blp2otfirpek6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

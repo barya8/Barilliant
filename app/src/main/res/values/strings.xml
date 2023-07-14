@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Barilliant</string>
+    <string name="title_home">Home</string>
+    <string name="title_my_music">My Music</string>
+    <string name="title_search">Search</string>
+    <string name="title_me">Me</string>
+    <string name="send">SEND</string>
+    <string name="song_name">Enter Song Name</string>
+    <string name="clear">CLEAR</string>
+    <string name="edit_create">Edit/Create</string>
+    <string name="song_duration">Enter Song Duration In Sec</string>
+    <string name="song_streams">Enter Song Streams Number In Millions</string>
+    <string name="song_album_pic">Enter URL Of Song Album Picture</string>
+    <string name="song_year">Enter Song Year</string>
+    <string name="song_youtube">Enter Youtube URL</string>
+    <string name="song_info">Enter Song Info</string>
+    <string name="song_artist">Enter Artist Name</string>
+    <string name="song_album">Enter Album Name</string>
+</resources>

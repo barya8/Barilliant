@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_artist"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_title" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_album_pic"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_artist" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_album_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_album"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_artist" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_album_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_album"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_album_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_album_pic_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_album_pic"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_album_name" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_album_pic_url"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_album_pic"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_album_pic_url" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_year"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_album_pic_url" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_year"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_year" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_duration"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_year" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_duration"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_duration" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_streams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_streams"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_duration" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_streams"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_streams"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_streams" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_youtube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_youtube"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_streams" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_youtube"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_youtube"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_youtube" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/en_LBL_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/song_info"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_youtube" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/en_ET_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/song_info"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/en_LBL_info" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/en_BTN_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/en_ET_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

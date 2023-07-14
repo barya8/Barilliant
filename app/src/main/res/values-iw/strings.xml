@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Barilliant</string>
+    <string name="title_home">בית</string>
+    <string name="title_my_music">המוזיקה שלי</string>
+    <string name="title_search">חיפוש</string>
+    <string name="title_me">איזור אישי</string>
+    <string name="send">שלח</string>
+    <string name="song_name">הכנס את שם השיר</string>
+    <string name="clear">נקה</string>
+    <string name="edit_create">ערוך/צור</string>
+    <string name="song_duration">הכנס את אורך השיר בשניות</string>
+    <string name="song_streams">הכנס את מספר ההאזנות לשיר במיליונים</string>
+    <string name="song_album_pic">הכנס קישור  של תמונת האלבום</string>
+    <string name="song_year">הכנס את שנת פרסום השיר</string>
+    <string name="song_youtube">הכנס קשור ליוטיוב</string>
+    <string name="song_info">הכנס מידע עבור השיר</string>
+    <string name="song_artist">הכנס את שם האמן</string>
+    <string name="song_album">הכנס את שם האלבום</string>
+</resources>

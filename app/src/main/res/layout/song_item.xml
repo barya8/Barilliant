@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:layout_margin="4dp"
+    android:elevation="8dp"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/song_IMG_album"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
+            android:layout_alignBottom="@id/song_LBL_youtube"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_toStartOf="@id/song_IMG_favorite"
+            android:layout_toEndOf="@id/song_IMG_album"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="SONG_NAME"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_LBL_title"
+            android:layout_alignStart="@id/song_LBL_title"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@id/song_IMG_favorite"
+            android:layout_toEndOf="@id/song_IMG_album"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="artist"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_LBL_artist"
+            android:layout_alignStart="@id/song_LBL_title"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@id/song_IMG_favorite"
+            android:layout_toEndOf="@id/song_IMG_album"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="album"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_LBL_album"
+            android:layout_alignStart="@id/song_LBL_title"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="2022"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_LBL_year"
+            android:layout_alignStart="@id/song_LBL_title"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="00m 00s"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_streams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_LBL_duration"
+            android:layout_alignStart="@id/song_LBL_title"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="1234 Streams"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/song_LBL_youtube"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/song_LBL_streams"
+            android:layout_alignStart="@id/song_LBL_title"
+            android:layout_marginTop="8dp"
+            android:maxLines="3"
+            android:minLines="1"
+            android:text="https://youtubelink"
+            android:textSize="16sp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/song_IMG_info"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="6dp"
+            android:src="@drawable/ic_info" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/song_IMG_favorite"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="6dp"
+            android:layout_below="@id/song_IMG_info"
+            android:src="@drawable/heart_empty" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/song_IMG_edit"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="6dp"
+            android:layout_below="@id/song_IMG_favorite"
+            android:src="@drawable/ic_edit" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
