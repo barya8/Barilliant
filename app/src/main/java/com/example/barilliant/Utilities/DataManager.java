@@ -102,7 +102,7 @@ public class DataManager {
                 .setYoutubeUrl("https://www.youtube.com/watch?v=CnQ8N1KacJc")
         );
         songs.add(new Song()
-                .setTitle("Deep Purple")
+                .setTitle("Smoke on the Water")
                 .setYear(1971)
                 .setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaT0FQU50ON3wwyLGCVwFnbxERlqgfW786FQ&usqp=CAU")
                 .setDuration(341)
@@ -110,7 +110,7 @@ public class DataManager {
                 .setFavorite(false)
                 .setId("7")
                 .setAlbum("Machine Head")
-                .setArtist("Green Day")
+                .setArtist("Deep Purple")
                 .setInfo("")
                 .setYoutubeUrl("https://www.youtube.com/watch?v=zUwEIt9ez7M")
         );

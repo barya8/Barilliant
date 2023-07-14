@@ -94,7 +94,12 @@ public class SearchViewModel extends ViewModel {
     private void filterSongs(String query) {
         ArrayList<Song> filteredSongs = new ArrayList<>();
         for (Song song : allSongs) {
-            if (song.getTitle().toLowerCase().contains(query.toLowerCase())) {
+            String title = song.getTitle().toLowerCase();
+            String artist = song.getArtist().toLowerCase();
+            String album = song.getAlbum().toLowerCase();
+            if (title.contains(query.toLowerCase()) ||
+                    artist.contains(query.toLowerCase()) ||
+                    album.contains(query.toLowerCase())) {
                 filteredSongs.add(song);
             }
         }
@@ -104,7 +109,7 @@ public class SearchViewModel extends ViewModel {
     public void showAllSongs() {
         ArrayList<Song> filteredSongs = new ArrayList<>();
         for (Song song : allSongs) {
-                filteredSongs.add(song);
+            filteredSongs.add(song);
         }
         mSongs.setValue(filteredSongs);
     }
