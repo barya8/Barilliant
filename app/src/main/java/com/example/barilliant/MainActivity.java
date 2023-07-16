@@ -8,6 +8,7 @@ import com.example.barilliant.Utilities.Constants;
 import com.example.barilliant.Utilities.DataManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,7 +16,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.barilliant.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,9 +34,52 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//        firebaseDatabase.getReference(Constants.DBKeys.SONGS).setValue(DataManager.getSongs());
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userId = user.getUid();
+            FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+            DatabaseReference usersReference = firebaseDatabase.getReference().child(Constants.DBKeys.USERS);
+            usersReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (!dataSnapshot.hasChildren()) {
+                        // If there are no existing users, copy data from DataManager
+                        usersReference.child(userId).child(Constants.DBKeys.SONGS).setValue(DataManager.getSongs());
+                    } else {
+                        // If there is at least one user, retrieve the first user's data
+                        DataSnapshot firstUserSnapshot = dataSnapshot.getChildren().iterator().next();
+                        DatabaseReference firstUserReference = usersReference.child(firstUserSnapshot.getKey());
 
+                        firstUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                // Copy data from the first user to the new user
+                                usersReference.child(userId).setValue(dataSnapshot.getValue(),
+                                        new DatabaseReference.CompletionListener() {
+                                            @Override
+                                            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                                if (databaseError == null) {
+                                                    // Data copy successful
+                                                } else {
+                                                    // Handle the error case
+                                                }
+                                            }
+                                        });
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                // Handle the cancellation case
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle the cancellation case
+                }
+            });
+        }
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -40,13 +91,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_search, R.id.navigation_me,
-                R.id.navigation_my_music)
+                R.id.navigation_home, R.id.navigation_search,R.id.navigation_my_music)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);

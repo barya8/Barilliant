@@ -12,6 +12,8 @@ import com.example.barilliant.Model.Song;
 import com.example.barilliant.Utilities.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,18 +27,29 @@ import java.util.ArrayList;
 public class SearchViewModel extends ViewModel {
 
     private final MutableLiveData<ArrayList<Song>> mSongs;
+    private final String userId;
     private final ArrayList<Song> allSongs;
+    private String currentQuery;
 
     public SearchViewModel() {
         mSongs = new MutableLiveData<>();
         mSongs.setValue(new ArrayList<>());
         allSongs = new ArrayList<>();
-        getSongsFromFirebase();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            userId = user.getUid();
+            getSongsFromFirebase();
+        } else {
+            userId = null;
+        }
     }
 
     private void getSongsFromFirebase() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference(Constants.DBKeys.SONGS);
+        DatabaseReference databaseReference = firebaseDatabase.getReference()
+                .child(Constants.DBKeys.USERS)
+                .child(userId)
+                .child(Constants.DBKeys.SONGS);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,7 +74,11 @@ public class SearchViewModel extends ViewModel {
     }
 
     public void updateSong(Song song) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.DBKeys.SONGS);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference()
+                .child(Constants.DBKeys.USERS)
+                .child(userId)
+                .child(Constants.DBKeys.SONGS);
         Query query = databaseReference.orderByChild("title").equalTo(song.getTitle());
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -73,6 +90,9 @@ public class SearchViewModel extends ViewModel {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
+                                        if (currentQuery != null) {
+                                            filterSongs(currentQuery);
+                                        }
                                     } else {
                                     }
                                 }
@@ -88,6 +108,7 @@ public class SearchViewModel extends ViewModel {
     }
 
     public void searchSongs(String query) {
+        currentQuery=query;
         filterSongs(query);
     }
 

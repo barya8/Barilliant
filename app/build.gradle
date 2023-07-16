@@ -56,4 +56,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
 
+    //Auth
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
 }

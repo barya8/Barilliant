@@ -54,7 +54,7 @@
         android:id="@+id/en_ET_artist"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/song_album_pic"
+        android:hint="@string/song_artist"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"

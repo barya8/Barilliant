@@ -1,5 +1,7 @@
 package com.example.barilliant.Model;
 
+import java.util.List;
+
 public class Song {
     private String title = "";
     private String image = "";
@@ -12,6 +14,7 @@ public class Song {
     private String youtubeUrl="";
     private String info="";
     private String id="";
+//    private List<Comment> Comments;
 
     public String getId() {
         return id;
@@ -128,16 +131,12 @@ public class Song {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "Song{" +
-                "title='" + title + '\'' +
-                ", image='" + image + '\'' +
-                ", duration=" + duration +
-                ", year=" + year +
-                ", streams=" + streams +
-                ", isFavorite=" + favorite +
-                ", youtubeUrl='" + youtubeUrl + '\'' +
-                '}';
-    }
+//    public List<Comment> getComments() {
+//        return Comments;
+//    }
+//
+//    public Song setComments(List<Comment> comments) {
+//        this.Comments = comments;
+//        return this;
+//    }
 }

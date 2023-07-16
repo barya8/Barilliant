@@ -1,0 +1,46 @@
+<!-- comment_fragment.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/commentsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/en_ET_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter your comment..." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/en_BTN_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post" />
+
+    </LinearLayout>
+
+</LinearLayout>

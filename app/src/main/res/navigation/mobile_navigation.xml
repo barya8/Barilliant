@@ -18,12 +18,6 @@
         tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_me"
-        android:name="com.example.barilliant.ui.me.MeFragment"
-        android:label="@string/title_me"
-        tools:layout="@layout/fragment_me" />
-
-    <fragment
         android:id="@+id/navigation_my_music"
         android:name="com.example.barilliant.ui.myMusic.MyMusicFragment"
         android:label="@string/title_my_music"

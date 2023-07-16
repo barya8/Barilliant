@@ -12,6 +12,8 @@ import com.example.barilliant.Model.Song;
 import com.example.barilliant.Utilities.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,16 +27,28 @@ import java.util.ArrayList;
 public class MyMusicViewModel extends ViewModel {
 
     private final MutableLiveData<ArrayList<Song>> mSongs = new MutableLiveData<>();
+    private final DatabaseReference songsRef;
+    private String userId;
 
     public MyMusicViewModel() {
-        getSongsFromFirebase();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            userId = user.getUid();
+            songsRef = FirebaseDatabase.getInstance().getReference()
+                    .child(Constants.DBKeys.USERS)
+                    .child(userId)
+                    .child(Constants.DBKeys.SONGS);
+
+            getSongsFromFirebase();
+        } else {
+            userId = "";
+            songsRef = null;
+        }
     }
 
     private void getSongsFromFirebase() {
         ArrayList<Song> songs = new ArrayList<>();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.DBKeys.SONGS);
-        Query query = databaseReference.orderByChild("favorite").equalTo(true);
-
+        Query query = songsRef.orderByChild("favorite").equalTo(true);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -57,9 +71,7 @@ public class MyMusicViewModel extends ViewModel {
         return mSongs;
     }
     public void updateSong(Song song) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.DBKeys.SONGS);
-        Query query = databaseReference.orderByChild("title").equalTo(song.getTitle());
-
+        Query query = songsRef.orderByChild("title").equalTo(song.getTitle());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

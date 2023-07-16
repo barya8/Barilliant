@@ -12,10 +12,6 @@
         android:title="@string/title_search" />
 
     <item
-        android:id="@+id/navigation_me"
-        android:icon="@drawable/ic_me"
-        android:title="@string/title_me" />
-    <item
         android:id="@+id/navigation_my_music"
         android:icon="@drawable/ic_my_music"
         android:title="@string/title_my_music" />
