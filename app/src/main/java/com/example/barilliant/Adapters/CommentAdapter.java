@@ -54,6 +54,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         return commentsList.size();
     }
 
+    //add comment to firebase
     public void addComment(String comment) {
         String userName = getCurrentUserName();
 
@@ -80,12 +81,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle the error
+
             }
         });
     }
 
-
+    //get the current user
     private String getCurrentUserName() {
         if (currentUser != null) {
             if (currentUser.getEmail().equals(""))

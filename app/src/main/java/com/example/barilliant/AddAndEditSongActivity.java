@@ -46,12 +46,13 @@ public class AddAndEditSongActivity extends AppCompatActivity {
         if (user != null) {
             userId = user.getUid();
             if (mode.equals("edit")) {
-                songPosition = getIntent().getStringExtra("songId");
-                loadData();
+                songPosition = getIntent().getStringExtra("songId"); //get the Id of the edit song
+                loadData(); // get the data of the chosen song and set it in edit text
             } else {
                 getLastPlaceInFirebase();
             }
         }
+        //check that the client fill all the fields in the form
         en_BTN_send.setOnClickListener(v -> {
             boolean allFieldsValid = true;
             if (!checkIfEmpty(en_ET_title))
@@ -92,6 +93,7 @@ public class AddAndEditSongActivity extends AppCompatActivity {
         en_BTN_send =findViewById(R.id.en_BTN_send);
     }
 
+    //set error when there was send with empty fields
     private boolean checkIfEmpty(AppCompatEditText en_ET_someText){
         String query = en_ET_someText.getText().toString();
         if (query.isEmpty()) {
@@ -103,6 +105,7 @@ public class AddAndEditSongActivity extends AppCompatActivity {
             return true;
         }
     }
+    // get the data of the chosen song and set it in edit text
     private void loadData() {
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference()
@@ -159,6 +162,7 @@ public class AddAndEditSongActivity extends AppCompatActivity {
         });
     }
 
+    // add the song to the specific place in firebase
     private void addSong() {
         String title = en_ET_title.getText().toString();
         String artist = en_ET_artist.getText().toString();

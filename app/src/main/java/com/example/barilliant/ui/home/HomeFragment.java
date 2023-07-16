@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -51,9 +50,8 @@ public class HomeFragment extends Fragment {
         songAdapter.setSongCallback(new SongCallback() {
             @Override
             public void editClicked(String songId) {
-//                SignalGenerator.getInstance().toast(movie.getTitle(), Toast.LENGTH_SHORT);
             }
-
+            //click on heart icon in one of the songs
             @Override
             public void favoriteClicked(Song song, int position) {
                 song.setFavorite(!song.isFavorite());

@@ -62,7 +62,7 @@ public class SearchFragment extends Fragment {
             public void editClicked(String songId) {
 
             }
-
+            //click on heart icon in one of the songs
             @Override
             public void favoriteClicked(Song song, int position) {
                 song.setFavorite(!song.isFavorite());

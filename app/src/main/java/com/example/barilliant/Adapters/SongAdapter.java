@@ -106,6 +106,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
             song_IMG_info=itemView.findViewById(R.id.song_IMG_info);
             song_LBL_artist=itemView.findViewById(R.id.song_LBL_artist);
             song_LBL_album=itemView.findViewById(R.id.song_LBL_album);
+            //open song in youtube
             song_IMG_album.setOnClickListener(v -> {
                 if (songCallback != null) {
                     String youtubeUrl = song_LBL_youtube.getText().toString();
@@ -116,14 +117,12 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
                     }
                 }
             });
+            // click on favorite button
             song_IMG_favorite.setOnClickListener(v -> {
                 if (songCallback != null)
                     songCallback.favoriteClicked(getItem(getAdapterPosition()), getAdapterPosition());
             });
-//            itemView.setOnClickListener(v -> {
-//                if (songCallback != null)
-//                    songCallback.editClicked(getItem(getAdapterPosition()), getAdapterPosition());
-//            });
+            // open AddAndEditSongActivity on edit mode
             song_IMG_edit.setOnClickListener(v ->  {
                 String clickedPosition = getItem(getAdapterPosition()).getId();
                 if (clickedPosition!=null) {
@@ -133,6 +132,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
                     context.startActivity(intent);
                 }
             });
+            //open SongInfoActivity
             song_IMG_info.setOnClickListener(v ->  {
                 String clickedPosition = getItem(getAdapterPosition()).getId();
                 if (clickedPosition != null) {

@@ -16,9 +16,6 @@ import com.example.barilliant.Adapters.CommentAdapter;
 import com.example.barilliant.Model.Comment;
 import com.example.barilliant.R;
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 
 import java.util.ArrayList;
 import java.util.List;

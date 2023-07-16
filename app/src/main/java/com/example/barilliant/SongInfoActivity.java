@@ -86,14 +86,14 @@ public class SongInfoActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        // Handle error if needed
+
                     }
                 });
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle error if needed
+
             }
         });
     }

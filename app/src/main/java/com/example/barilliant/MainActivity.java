@@ -59,16 +59,16 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                                                 if (databaseError == null) {
-                                                    // Data copy successful
+
                                                 } else {
-                                                    // Handle the error case
+
                                                 }
                                             }
                                         });
                             }
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
-                                // Handle the cancellation case
+
                             }
                         });
                     }
@@ -76,13 +76,14 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Handle the cancellation case
+
                 }
             });
         }
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //click on add new song button- open AddAndEditSongActivity in add mode
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // logout from the current user and go back to LoginActivity
         binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

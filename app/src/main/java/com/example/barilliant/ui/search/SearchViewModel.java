@@ -43,7 +43,7 @@ public class SearchViewModel extends ViewModel {
             userId = null;
         }
     }
-
+    //get the songs from firebase
     private void getSongsFromFirebase() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference()
@@ -73,6 +73,7 @@ public class SearchViewModel extends ViewModel {
         return mSongs;
     }
 
+    //show the songs that sets to the filter
     public void updateSong(Song song) {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference()
@@ -102,7 +103,6 @@ public class SearchViewModel extends ViewModel {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle the cancellation case
             }
         });
     }
@@ -112,6 +112,7 @@ public class SearchViewModel extends ViewModel {
         filterSongs(query);
     }
 
+    // search if there is title, artist or album that set to the search
     private void filterSongs(String query) {
         ArrayList<Song> filteredSongs = new ArrayList<>();
         for (Song song : allSongs) {

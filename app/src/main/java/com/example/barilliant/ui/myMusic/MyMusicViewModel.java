@@ -46,6 +46,7 @@ public class MyMusicViewModel extends ViewModel {
         }
     }
 
+    //get the songs from firebase
     private void getSongsFromFirebase() {
         ArrayList<Song> songs = new ArrayList<>();
         Query query = songsRef.orderByChild("favorite").equalTo(true);
@@ -70,6 +71,7 @@ public class MyMusicViewModel extends ViewModel {
     public LiveData<ArrayList<Song>> getSongs() {
         return mSongs;
     }
+    //show only the favorites song
     public void updateSong(Song song) {
         Query query = songsRef.orderByChild("title").equalTo(song.getTitle());
         query.addListenerForSingleValueEvent(new ValueEventListener() {

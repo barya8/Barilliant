@@ -7,7 +7,7 @@ public class Song {
     private String image = "";
     private int duration = 0; //in seconds
     private int year = 0;
-    private long streams = 0;
+    private long streams = 0; //im millions
     private String album= "";
     private String artist= "";
     private boolean favorite = false;
